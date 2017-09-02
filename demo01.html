@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+
+		var obj = {
+			num:100,
+			color:"red",
+			__data:{
+				color:"blue"
+			}
+		}
+
+		Object.defineProperty(obj,"color",{
+			get:function(argument) {
+				console.log(this)
+				return  this.__data.color;
+			},
+			set:function(color){
+				console.log(color)
+				this.__data.color = color;
+			},
+			// value:"",
+			// writable:true
+			enumerable:true,
+			configurable:true
+		})
+
+		console.log(obj)
+		obj.color = "pink";
+		console.log(obj)
+	</script>
+</body>
+</html>
